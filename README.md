@@ -1,4 +1,9 @@
 # jboss4 [![Build Status](https://travis-ci.org/daggerok/jboss4.svg?branch=master)](https://travis-ci.org/daggerok/jboss4)
+
+## DEPRECATED
+
+### USE [daggerok](https://github.com/daggerok/jboss)/[jboss:4.2.3.GA](https://hub.docker.com/r/daggerok/jboss) instead
+
 JBOSS 4 automation build for docker hub based on `openjdk:8u151-jre-alpine3.7` image
 
 **Exposed ports**:

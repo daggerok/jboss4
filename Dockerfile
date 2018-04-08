@@ -18,13 +18,13 @@ RUN apk --no-cache --update add bash curl unzip wget \
  && unzip -d /opt /tmp/jboss-${JBOSS_VERSION}.zip \
  && apk del unzip \
  && rm -rf /var/cache/apk/* /tmp/*
-EXPOSE 8080 8009 8083 8093
+EXPOSE 1009 8080 8009 8083 8093
 CMD /bin/bash
 ENTRYPOINT chmod +x ${JBOSS_HOME}/bin/run.sh \
                  && ${JBOSS_HOME}/bin/run.sh -b 0.0.0.0
 
 ############################################ USAGE ##############################################
-# FROM daggerok/jboss4                                                                          #
+# FROM daggerok/jboss:4.2.3.GA                                                                  #
 # HEALTHCHECK --timeout=2s --retries=22 \                                                       #
 #         CMD wget -q --spider http://127.0.0.1:8080/my-service/api/health \                    #
 #          || exit 1                                                                            #
@@ -32,11 +32,10 @@ ENTRYPOINT chmod +x ${JBOSS_HOME}/bin/run.sh \
 #################################################################################################
 
 ############################## DEBUG | MULTI-DEPLOYMENTS USAGE ##################################
-# FROM daggerok/jboss4                                                                          #
+# FROM daggerok/jboss:4.2.3.GA                                                                  #
 # # Debug:                                                                                      #
 # ENV JAVA_OPTS="$JAVA_OPTS -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005" #
 # EXPOSE 5005                                                                                   #
 # # Multi builds:                                                                               #
 # COPY ./target/*.war ./build/libs/other.war ${JBOSS_HOME}/server/default/deploy/               #
 #################################################################################################
-
